@@ -7,7 +7,7 @@ type User {
     username: String
     email: String
     friendCount: Int
-    thoughts: [Thought]
+    book: books
     friends: [User]
 }
 
@@ -32,14 +32,14 @@ type Query {
     users: [User]
     user(username: String!): User   
     books(username: String): [Book]
-    book(_id: ID!): Thought
+    book(_id: ID!): Book
    }
 
 type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addBook(thoughtText: String!): Thought
-    addReaction(thoughtId: ID!,)
+    addBook(bookText: String!): Book
+    addReaction(bookId: ID!, reactionBody: String!): Book
 }
 
 type Auth {
